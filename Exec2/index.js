@@ -99,43 +99,64 @@ function mySet() {
 
   // method will return the difference of two sets as new set
   this.difference = function(otherSet){
+
+    // create the new difference set
     var differenceSet = new mySet();
+    
+    // Get the values of the first set   
     var firstSet = this.values();
+    
+    // For each value in the first set it goona check if not (if(!)) in the set and the we add to different set
     firstSet.forEach(function(e){
-      differenceSet.add(e);
+      if(!otherSet.has(e)){
+        differenceSet.add(e);
+ 
+      }
+    
     });
+    
     return differenceSet;
   }
 
+  // this method will test if the set is a subset of different set. Going to test the first set is completelt contained within the second set. Gonna return true or false 
+  this.subset = function(otherSet) {
+    
+    // Get all values of the first set
+    var firstSet = this.values();
 
+    // It calls every method, which going to do is test whether all the elements in the array
+    return firstSet.every(function(value) {
+      
+      // Check if all the elements of the first are in second set, othe words gonna check if the first set is a subset of the second set 
+      return otherSet.has(value);
 
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  };
 
 };
+
+var setA = new mySet();
+var setB = new mySet();
+setA.add("a");
+setB.add("b");
+setB.add("c");
+setB.add("a");
+setB.add("d");
+console.log(setA.subset(setB));
+console.log(setA.intersection(setB).values());
+console.log(setB.difference(setA).values());
+
+// es6 SETs
+var setC = new Set();
+var setD = new Set();
+setC.add("a");
+setD.add("b");
+setD.add("c");
+setD.add("a");
+setD.add("d");
+console.log(setD.values());
+
+setD.delete("a");
+console.log(setD.has("a")); 
+console.log(setD.add("d"));
