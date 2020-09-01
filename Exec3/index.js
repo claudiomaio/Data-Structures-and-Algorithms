@@ -84,6 +84,7 @@ function PriorityQueue (){
   
   };
 
+  // You could return the entire element with the item and the priority, but this method return the item without the priority it (index 0) wiich gonna show the all items at beggin of the arry
 
   this.dequeue = function(){
     var value = collection.shift();
@@ -103,3 +104,13 @@ function PriorityQueue (){
     return (collection.length === 0);
   };
 }
+
+var pq = new PriorityQueue();
+pq.enqueue(['Beau Carnes', 2]);
+pq.enqueue(['Quincy Larson', 3]);
+pq.enqueue(['Ewa Mitulsak-Wojcik', 1]);
+pq.enqueue(['Briana Swift', 2]);
+pq.printCollection();
+pq.dequeue();
+pq.front();
+pq.printCollection();
