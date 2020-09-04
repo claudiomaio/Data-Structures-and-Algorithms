@@ -258,10 +258,10 @@ class BST{
         let node = Q.shift();
         result.push(node.data);
         if (node.left != null) {
-          Q.push(node.left);
+            Q.push(node.left);
         };
         if (node.right != null) {
-          Q.push(node.right);
+            Q.push(node.right);
         };
       };
       return result;
@@ -271,7 +271,7 @@ class BST{
 
   };
 
-};
+}
 
 
 
@@ -287,4 +287,14 @@ bst.add(5);
 bst.add(7);
 bst.add(20);
 
-console.log(bst.fin)
+console.log(bst.findMinHeight());
+console.log(bst.findMaxHeight());
+console.log(bst.isBalanced());
+bst.add(10);
+console.log(bst.findMinHeight());
+console.log(bst.findMaxHeight());
+console.log(bst.isBalanced());
+console.log('inOrder: ' + bst.inOrder());
+console.log('preOrder: ' + bst.preOrder());
+console.log('postOrder: ' + bst.postOrder());
+console.log('levelOrder: ' + bst.levelOrder());
