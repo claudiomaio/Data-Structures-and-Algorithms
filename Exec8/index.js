@@ -5,7 +5,7 @@ let Node = function() {
   // Key will be equal a new map (es6 map structure)
   this.key = new Map();
 
-  // In the example of the notebook part3, the nodes with start, as the end set to true and the others that dont have the star it will have end equal to false 
+  // In the examples of the notebook part3, the nodes with start, as the end set to true and the others that dont have the star it will have end equal to false 
   this.end = false;  
   this.setEnd = function() {
     this.end = true;
