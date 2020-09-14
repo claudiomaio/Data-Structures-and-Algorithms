@@ -27,11 +27,13 @@ let Trie = function() {
   this.add = function(input, node = this.root) {
     
     // If we are at the en of the word that we passed in, it will set the end in the node 
+
     if (input.length == 0){
        node.setEnd();
        return;
     
     // If there's more than zero letters that we've passed into this add function, we are not a the end of the word
+
     // First check if there's already a node with that letter that we're pass.
     // !node.keys.has(input[0]) -> if does not have a letter input zero, meaning with does not have the first letter of the word it will creat the new word     
     } else if (!node.keys.has(input[0])) {
@@ -42,6 +44,7 @@ let Trie = function() {
       return this.add(input.substr(1), node.keys.get(input[0]));
     };
   };
+
 
   // Check if the word is in the TRIE
   this.isWord = function(word) {
@@ -55,12 +58,17 @@ let Trie = function() {
       } else {
 
         // Set the to the first letter of the word that we pass, example we pass "send", and we set the "s" to the node and we set the rest of the "end" to word variable     
-        node = node.keys.get(word[0]);
-        word = word.substr(1);
+  this.isWord = function(word) {
+    let node = this.root;
+    while (word.length > 1) {
+      if (!node.keys.has(word[0])) {
+        return false;
+      } else {
+
       };
     };
-    
     // if as the last letter of the word that wee pass in and if is the end - "isEnd" -, we return true that is in TRIE
+
     return (node.keys.has(word) && node.keys.get(word).isEnd()) ?
       true : false;
   };
@@ -90,7 +98,9 @@ let Trie = function() {
 
 };
 
+
 var myTrie = new Trie()
+
 
 myTrie.add('ball');
 myTrie.add('bat');
@@ -103,4 +113,4 @@ myTrie.add('sense')
 console.log(myTrie.isWord('doll'))
 console.log(myTrie.isWord('dor'))
 console.log(myTrie.isWord('dorf'))
-console.log(myTrie.print())
+console.log(myTrie.print()
